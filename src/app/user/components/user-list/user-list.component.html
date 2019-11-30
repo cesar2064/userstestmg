@@ -1,0 +1,20 @@
+<Page class="page">
+    <ActionBar>
+        <Label text="User List"></Label>
+    </ActionBar>
+    <GridLayout rows="*, auto">
+        <ListView #lv [items]="userList" row="0" (loaded)="listViewLoaded($event)">
+            <ng-template let-user="item" let-i="index" let-odd="odd" let-even="even">
+                <GridLayout (tap)="loadUserView(user, i)" columns="*,*" rows="*,*">
+                    <Label [text]="user.name.first" row="0" col="0"></Label>
+                    <Label [text]="user.name.last" row="1" col="0"></Label>
+                    <Image [src]="user.picture.large" loadMode="async" rowSpan="2" row="0" col="1" stretch="aspectFill">
+                    </Image>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        <GridLayout row="1">
+            <Button class="-primary" text="Load More!" (tap)="loadUsers()"></Button>
+        </GridLayout>
+    </GridLayout>
+</Page>

@@ -1,0 +1,17 @@
+<Page class="page">
+    <ActionBar>
+        <Label text="User View"></Label>
+    </ActionBar>
+    <GridLayout rows="auto, auto, auto, auto">
+        <Image [src]="userData.picture.large" height="400" loadMode="async" row="0" stretch="aspectFill">
+        </Image>
+        <GridLayout row="1">
+            <Button class="-danger" text="Update Picture" (tap)="takePicture()"></Button>
+        </GridLayout>
+        <Label [text]="userData.name.first + ' ' + userData.name.last" row="2"
+            class="user-full-name text-center font-weight-bold"></Label>
+        <GridLayout row="3">
+            <Button class="-primary" text="Back" (tap)="back()"></Button>
+        </GridLayout>
+    </GridLayout>
+</Page>
